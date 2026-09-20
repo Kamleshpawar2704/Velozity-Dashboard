@@ -141,6 +141,16 @@ The React client can be deployed to Vercel. The Express + Socket.io API needs a 
 
 Set `VITE_API_URL`, `VITE_SOCKET_URL`, `DATABASE_URL`, `CLIENT_URL`, and both JWT secrets in the corresponding deployment environments. Do not commit `.env` files.
 
+# Velozity Dashboard
+
+A real-time project and task management dashboard built with React, TypeScript, Node.js, Express, PostgreSQL, Prisma and Socket.io.
+
+## 🚀 Live Demo
+
+**Frontend:** https://velozity-dashboard-client.vercel.app
+
+**Backend API:** https://velozity-dashboard-10co.onrender.com
+
 ## Explanation field (assessment-ready draft)
 
 The hardest part was making the activity feed real-time without turning the frontend into the source of truth. I kept activity records in PostgreSQL and only used Socket.io to deliver changes to connected clients. Each socket is authenticated and joins only the project rooms allowed for that user. Admins receive the global feed, PMs receive activity from projects they created, and developers receive events connected to their assigned tasks. When a client reconnects, it requests the latest 20 permitted records from the database, so events are not lost just because the browser was offline.
